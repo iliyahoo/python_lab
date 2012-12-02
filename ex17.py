@@ -3,19 +3,20 @@
 from sys import argv
 from os.path import exists
 
-script, outfile, infile = argv
+script, from_file, to_file = argv
 
-output = open(outfile)
-outdata = output.read()
+print "Copying from %s to %s" % (from_file, to_file)
 
-print "The output file %r is %r bytes length." % (outfile, len(outdata))
-print "Does the input file exists? %r" % exists(infile)
+indata = open(from_file).read()
 
-print "Ready, hit RETURN to continue, CTRL_C to abort."
-raw_input("> ")
+print "The input file is %d bytes long." % len(indata)
+print "Does the output file exist. %r" % exists(to_file)
+print "Hit return to continue, CTRL-C to abort."
+raw_input()
 
-input = open(infile, 'w')
-input.write(outdata)
+open(to_file, 'w').write(indata)
 
-input.close()
-output.close()
+print "All done."
+
+#indata.close()
+#input.close()

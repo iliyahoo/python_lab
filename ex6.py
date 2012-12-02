@@ -1,20 +1,22 @@
-x = "There are %d types of peaple." % 10
-binary = "binary"
-do_not = "don't"
-y = "Those who know %s and those who %s." % (binary, do_not)
+# from sys import argv
+# script, name = argv
 
-print x
-print y
+def dbBase():
+	db = {}
+	db['amazon'] = 100
+	db['ebay'] = 80
+	db['wallmart'] = 60
+	return db
 
-print "I said: %r." % x
-print "I also said: '%s'." % y
+def Order(item, argDB):
+	print 'item: ', item
+	for price in argDB:
+		print price, "price: ", argDB[price]
+		
+Order('computer', dbBase())
 
-hilarious = False
-joke_evaluation = "Isn't that joke so funny?! %r"
 
-print joke_evaluation % hilarious
 
-w = "This is the left side of..."
-e = "a string with a right side."
 
-print w + e
+
+
